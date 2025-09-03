@@ -1,9 +1,16 @@
-import express from 'express'
+import express, { type Request, type Response } from 'express'
+
 const app=express();
 
-
-app.get('/',(req,res)=>{
+app.use(express.json());
+app.get('/',(req:Request,res:Response)=>{
+    console.log(res)
     res.send("Hello from Asif")
+})
+
+app.post('/',(req:Request, res:Response)=>{
+    console.log(req.body);
+    res.send("Success buddy");
 })
 
 
